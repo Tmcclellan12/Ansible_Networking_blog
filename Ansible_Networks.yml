@@ -1,0 +1,27 @@
+---
+ - name: Changing Router config
+   hosts: routers
+   gather_facts: no
+   tasks: 
+    - name: Add Banner
+      ios_banner: 
+        banner: login
+        text: |
+          Hey check out the 
+          new banner blogmates
+        state: present
+
+    - name: Add Loopback int
+      ios_interface: 
+        name: Loopback1337
+        state: present
+    
+    - name: run multiple commands and evaluate the output
+      cisco.ios.ios_command:
+        commands:
+        - show version
+        - show interfaces
+        #wait_for will filter our results show command results
+        wait_for:
+        - result[0] contains IOS
+        - result[1] contains Loopback1337
