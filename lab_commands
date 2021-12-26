@@ -1,0 +1,25 @@
+#Commands that I used in this lab
+
+#Updates and Installing necessary packages/ansible
+
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install ansible -y 
+sudo apt install python3-pip -y
+sudo pip install paramiko
+
+#change ansible config file
+cd /etc/ansible
+sudo nano ansible.cfg
+
+#add hosts and variables
+sudo nano hosts
+
+#run ansible ping on hosts
+ansible routers -m ping
+
+#run ansible ios_command show version
+ansible routers -m ios_command "commands='show ver'"
+
+#run ansible playbook
+ansible-playbook 
