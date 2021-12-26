@@ -21,5 +21,13 @@ ansible routers -m ping
 #run ansible ios_command show version
 ansible routers -m ios_command "commands='show ver'"
 
+#setup playbook file
+sudo nano playbook.yml
+
+#copy the text into this file and save
+ctrl x
+y
+enter key
+
 #run ansible playbook
-ansible-playbook 
+ansible-playbook playbook.yml
